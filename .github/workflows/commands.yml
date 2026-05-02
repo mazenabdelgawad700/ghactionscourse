@@ -5,7 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          deprecated=true
-          if [[ deprecated ]]; then
-            echo "::warning::Deprecated function found"
+          if [ -f "config.yaml" ]; then
+            echo "::debug::config.yaml exists"
+          else
+            echo "::error::config.yaml is missing"
           fi
+          
